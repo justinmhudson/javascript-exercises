@@ -1,8 +1,9 @@
 const removeFromArray = (array, ...items) => {
-    for (const item of items) {
+    for (let item of items) {
         let itemIndex = array.indexOf(item);
-        if (item >= 0) {
-            let removedItem = array.splice(itemIndex, 1);
+        while (itemIndex !== -1) {
+            array.splice(itemIndex, 1);
+            itemIndex = array.indexOf(item);
         }
     }
     return array;
